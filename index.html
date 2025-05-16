@@ -6,127 +6,151 @@
   <title>MoodBoost</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-      transition: background-color 0.3s;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      color: #333;
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background-color 0.3s ease;
     }
 
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
+      font-size: 3.5em;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+      color: #222;
+    }
+
+    .mood-options {
+      margin: 20px 0;
+    }
+
+    .mood-options input[type="radio"] {
+      display: none;
     }
 
     .mood-options label {
-      margin: 0 10px;
+      background-color: white;
+      border: 2px solid #888;
+      padding: 12px 25px;
+      margin: 0 12px;
+      border-radius: 30px;
       cursor: pointer;
-      font-weight: bold;
-      padding: 8px 15px;
-      border-radius: 5px;
-      border: 2px solid transparent;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      font-weight: 600;
       user-select: none;
       display: inline-block;
-      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      font-size: 1.2em;
     }
 
-    input[type="radio"] {
-      display: none;
+    .mood-options label:hover {
+      background-color: #ffcc80;
+      border-color: #ff9800;
+      color: #663300;
     }
 
-    /* Show selected mood's quotes */
-    #happy:checked ~ .quotes .happy,
-    #sad:checked ~ .quotes .sad,
-    #anxious:checked ~ .quotes .anxious,
-    #motivated:checked ~ .quotes .motivated {
-      display: block;
-    }
-
-    /* Highlight the selected label */
-    #happy:checked + label,
-    #sad:checked + label,
-    #anxious:checked + label,
-    #motivated:checked + label {
-      background-color: #333;
+    input[type="radio"]:checked + label {
+      background-color: #ff9800;
       color: white;
-      border-color: #333;
+      border-color: #e65100;
+      box-shadow: 0 4px 10px rgba(230, 81, 0, 0.7);
     }
 
-    /* Hide all quotes by default */
     .message {
       display: none;
-      max-width: 600px;
-      margin: 20px auto 0;
-      padding: 20px;
-      border-radius: 10px;
+      margin-top: 40px;
+      padding: 25px 30px;
+      width: 90%;
+      max-width: 650px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      color: #444;
       font-style: italic;
-      background-color: #f2f2f2;
+      line-height: 1.6;
+      transition: background-color 0.3s ease;
     }
 
-    /* Background colors for quotes container depending on mood */
-    #happy:checked ~ .quotes {
-      background-color: #ffeb99;
+    .message ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    #sad:checked ~ .quotes {
-      background-color: #cce0ff;
+    .message li {
+      margin-bottom: 20px;
+      font-size: 1.1em;
     }
 
-    #anxious:checked ~ .quotes {
-      background-color: #d0f0c0;
-    }
-
-    #motivated:checked ~ .quotes {
-      background-color: #ffd1dc;
+    /* Show quotes based on selected mood */
+    #happy:checked ~ .happy,
+    #sad:checked ~ .sad,
+    #anxious:checked ~ .anxious,
+    #motivated:checked ~ .motivated {
+      display: block;
     }
   </style>
 </head>
 <body>
   <h1>MoodBoost</h1>
 
-  <input type="radio" name="mood" id="happy" checked />
-  <label for="happy">😊 Happy</label>
+  <div class="mood-options">
+    <input type="radio" name="mood" id="happy" checked />
+    <label for="happy">😊 Happy</label>
 
-  <input type="radio" name="mood" id="sad" />
-  <label for="sad">😔 Sad</label>
+    <input type="radio" name="mood" id="sad" />
+    <label for="sad">😔 Sad</label>
 
-  <input type="radio" name="mood" id="anxious" />
-  <label for="anxious">😰 Anxious</label>
+    <input type="radio" name="mood" id="anxious" />
+    <label for="anxious">😰 Anxious</label>
 
-  <input type="radio" name="mood" id="motivated" />
-  <label for="motivated">💪 Motivated</label>
+    <input type="radio" name="mood" id="motivated" />
+    <label for="motivated">💪 Motivated</label>
+  </div>
 
-  <div class="quotes">
-    <div class="message happy">
-      <ul>
-        <li>“Happiness is not something ready made. It comes from your own actions.” — Dalai Lama</li>
-        <li>“For every minute you are angry you lose sixty seconds of happiness.” — Ralph Waldo Emerson</li>
-        <li>“The purpose of our lives is to be happy.” — Dalai Lama</li>
-      </ul>
-    </div>
+  <!-- Happy Quotes -->
+  <div class="message happy">
+    <ul>
+      <li>“Happiness is not something ready made. It comes from your own actions.” — Dalai Lama</li>
+      <li>“For every minute you are angry you lose sixty seconds of happiness.” — Ralph Waldo Emerson</li>
+      <li>“The purpose of our lives is to be happy.” — Dalai Lama</li>
+      <li>“Count your age by friends, not years. Count your life by smiles, not tears.” — John Lennon</li>
+    </ul>
+  </div>
 
-    <div class="message sad">
-      <ul>
-        <li>“Tears come from the heart and not from the brain.” — Leonardo da Vinci</li>
-        <li>“The wound is the place where the Light enters you.” — Rumi</li>
-        <li>“Every storm runs out of rain, just like every dark night turns into day.” — Gary Allan</li>
-      </ul>
-    </div>
+  <!-- Sad Quotes -->
+  <div class="message sad">
+    <ul>
+      <li>“Tears come from the heart and not from the brain.” — Leonardo da Vinci</li>
+      <li>“The wound is the place where the Light enters you.” — Rumi</li>
+      <li>“Every storm runs out of rain, just like every dark night turns into day.” — Gary Allan</li>
+      <li>“Sadness flies away on the wings of time.” — Jean de La Fontaine</li>
+    </ul>
+  </div>
 
-    <div class="message anxious">
-      <ul>
-        <li>“You don’t have to control your thoughts. You just have to stop letting them control you.” — Dan Millman</li>
-        <li>“Do not anticipate trouble, or worry about what may never happen. Keep in the sunlight.” — Benjamin Franklin</li>
-        <li>“This too shall pass.” — Persian adage</li>
-      </ul>
-    </div>
+  <!-- Anxious Quotes -->
+  <div class="message anxious">
+    <ul>
+      <li>“You don’t have to control your thoughts. You just have to stop letting them control you.” — Dan Millman</li>
+      <li>“Do not anticipate trouble, or worry about what may never happen. Keep in the sunlight.” — Benjamin Franklin</li>
+      <li>“This too shall pass.” — Persian adage</li>
+      <li>“Feelings come and go like clouds in a windy sky. Conscious breathing is my anchor.” — Thich Nhat Hanh</li>
+    </ul>
+  </div>
 
-    <div class="message motivated">
-      <ul>
-        <li>“Start where you are. Use what you have. Do what you can.” — Arthur Ashe</li>
-        <li>“The future depends on what you do today.” — Mahatma Gandhi</li>
-        <li>“Don’t watch the clock; do what it does. Keep going.” — Sam Levenson</li>
-      </ul>
-    </div>
+  <!-- Motivated Quotes -->
+  <div class="message motivated">
+    <ul>
+      <li>“Start where you are. Use what you have. Do what you can.” — Arthur Ashe</li>
+      <li>“The future depends on what you do today.” — Mahatma Gandhi</li>
+      <li>“Don’t watch the clock; do what it does. Keep going.” — Sam Levenson</li>
+      <li>“Success usually comes to those who are too busy to be looking for it.” — Henry David Thoreau</li>
+    </ul>
   </div>
 </body>
 </html>
+
