@@ -2,35 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Mood Booster</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MoodBoost</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 2em;
-      transition: background-color 0.5s, color 0.5s;
+      padding: 20px;
+      transition: background-color 0.3s;
     }
 
     h1 {
-      font-size: 3em;
+      font-size: 2.5em;
     }
 
-    .mood-select label {
+    .mood-options {
+      margin: 20px 0;
+    }
+
+    .mood-options label {
       margin: 0 10px;
       cursor: pointer;
-      padding: 10px 20px;
-      background: #eee;
-      border-radius: 20px;
-      display: inline-block;
-    }
-
-    input[type="radio"] {
-      display: none;
+      font-weight: bold;
     }
 
     .message {
-      margin-top: 2em;
-      font-size: 1.5em;
+      display: none;
+      margin-top: 20px;
+    }
+
+    .message ul {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .message li {
+      background: #f2f2f2;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 10px;
+      font-style: italic;
+    }
+
+    input[type="radio"] {
       display: none;
     }
 
@@ -41,31 +57,76 @@
       display: block;
     }
 
+    /* Background colors for each mood */
     #happy:checked ~ body {
-      background-color: #ffe066;
-      color: #333;
+      background-color: #ffeb99;
     }
 
     #sad:checked ~ body {
-      background-color: #4a5568;
-      color: #f0f0f0;
+      background-color: #cce0ff;
     }
 
     #anxious:checked ~ body {
-      background-color: #f687b3;
-      color: #fff;
+      background-color: #d0f0c0;
     }
 
     #motivated:checked ~ body {
-      background-color: #48bb78;
-      color: #fff;
+      background-color: #ffd1dc;
     }
+
   </style>
 </head>
 <body>
-  <h1>Mood Booster</h1>
-
-  <div class="mood-select">
+  <h1>MoodBoost</h1>
+  
+  <div class="mood-options">
+    <input type="radio" name="mood" id="happy" checked>
     <label for="happy">😊 Happy</label>
-    <label for="sad">😢 Sad</label>
-    <label for="anxious">😰
+
+    <input type="radio" name="mood" id="sad">
+    <label for="sad">😔 Sad</label>
+
+    <input type="radio" name="mood" id="anxious">
+    <label for="anxious">😰 Anxious</label>
+
+    <input type="radio" name="mood" id="motivated">
+    <label for="motivated">💪 Motivated</label>
+  </div>
+
+  <!-- Happy Quotes -->
+  <div class="message happy">
+    <ul>
+      <li>“Happiness is not something ready made. It comes from your own actions.” — Dalai Lama</li>
+      <li>“For every minute you are angry you lose sixty seconds of happiness.” — Ralph Waldo Emerson</li>
+      <li>“The purpose of our lives is to be happy.” — Dalai Lama</li>
+    </ul>
+  </div>
+
+  <!-- Sad Quotes -->
+  <div class="message sad">
+    <ul>
+      <li>“Tears come from the heart and not from the brain.” — Leonardo da Vinci</li>
+      <li>“The wound is the place where the Light enters you.” — Rumi</li>
+      <li>“Every storm runs out of rain, just like every dark night turns into day.” — Gary Allan</li>
+    </ul>
+  </div>
+
+  <!-- Anxious Quotes -->
+  <div class="message anxious">
+    <ul>
+      <li>“You don’t have to control your thoughts. You just have to stop letting them control you.” — Dan Millman</li>
+      <li>“Do not anticipate trouble, or worry about what may never happen. Keep in the sunlight.” — Benjamin Franklin</li>
+      <li>“This too shall pass.” — Persian adage</li>
+    </ul>
+  </div>
+
+  <!-- Motivated Quotes -->
+  <div class="message motivated">
+    <ul>
+      <li>“Start where you are. Use what you have. Do what you can.” — Arthur Ashe</li>
+      <li>“The future depends on what you do today.” — Mahatma Gandhi</li>
+      <li>“Don’t watch the clock; do what it does. Keep going.” — Sam Levenson</li>
+    </ul>
+  </div>
+</body>
+</html>
