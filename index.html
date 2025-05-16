@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MoodBoost</title>
   <style>
     body {
@@ -20,22 +20,45 @@
       margin: 20px 0;
     }
 
+    /* Style labels as buttons */
     .mood-options label {
       margin: 0 10px;
       cursor: pointer;
       font-weight: bold;
+      padding: 10px 20px;
+      border: 2px solid #333;
+      border-radius: 8px;
+      user-select: none;
+      transition: background-color 0.3s, color 0.3s;
+      display: inline-block;
+    }
+
+    /* Hover effect */
+    .mood-options label:hover {
+      background-color: #333;
+      color: white;
+    }
+
+    /* Show which is selected */
+    input[type="radio"]:checked + label {
+      background-color: #333;
+      color: white;
     }
 
     .message {
       display: none;
       margin-top: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 15px;
+      border-radius: 10px;
+      font-style: italic;
     }
 
     .message ul {
       list-style: none;
       padding: 0;
-      max-width: 600px;
-      margin: 0 auto;
     }
 
     .message li {
@@ -43,13 +66,13 @@
       margin: 10px 0;
       padding: 15px;
       border-radius: 10px;
-      font-style: italic;
     }
 
     input[type="radio"] {
       display: none;
     }
 
+    /* Show quotes based on selected mood */
     #happy:checked ~ .happy,
     #sad:checked ~ .sad,
     #anxious:checked ~ .anxious,
@@ -57,39 +80,38 @@
       display: block;
     }
 
-    /* Background colors for each mood */
-    #happy:checked ~ body {
-      background-color: #ffeb99;
+    /* Background color changes inside message container */
+    #happy:checked ~ .happy {
+      background-color: #fff9cc;
     }
 
-    #sad:checked ~ body {
+    #sad:checked ~ .sad {
       background-color: #cce0ff;
     }
 
-    #anxious:checked ~ body {
+    #anxious:checked ~ .anxious {
       background-color: #d0f0c0;
     }
 
-    #motivated:checked ~ body {
+    #motivated:checked ~ .motivated {
       background-color: #ffd1dc;
     }
-
   </style>
 </head>
 <body>
   <h1>MoodBoost</h1>
-  
+
   <div class="mood-options">
-    <input type="radio" name="mood" id="happy" checked>
+    <input type="radio" name="mood" id="happy" checked />
     <label for="happy">😊 Happy</label>
 
-    <input type="radio" name="mood" id="sad">
+    <input type="radio" name="mood" id="sad" />
     <label for="sad">😔 Sad</label>
 
-    <input type="radio" name="mood" id="anxious">
+    <input type="radio" name="mood" id="anxious" />
     <label for="anxious">😰 Anxious</label>
 
-    <input type="radio" name="mood" id="motivated">
+    <input type="radio" name="mood" id="motivated" />
     <label for="motivated">💪 Motivated</label>
   </div>
 
