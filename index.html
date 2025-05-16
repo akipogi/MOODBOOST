@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MoodBoost</title>
   <style>
     body {
@@ -14,10 +14,7 @@
 
     h1 {
       font-size: 2.5em;
-    }
-
-    .mood-options {
-      margin: 20px 0;
+      margin-bottom: 20px;
     }
 
     .mood-options label {
@@ -27,42 +24,21 @@
       padding: 8px 15px;
       border-radius: 5px;
       border: 2px solid transparent;
-      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
       user-select: none;
       display: inline-block;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     }
 
     input[type="radio"] {
       display: none;
     }
 
-    /* Show message for checked mood */
-    #happy:checked ~ .quotes-container .happy,
-    #sad:checked ~ .quotes-container .sad,
-    #anxious:checked ~ .quotes-container .anxious,
-    #motivated:checked ~ .quotes-container .motivated {
+    /* Show selected mood's quotes */
+    #happy:checked ~ .quotes .happy,
+    #sad:checked ~ .quotes .sad,
+    #anxious:checked ~ .quotes .anxious,
+    #motivated:checked ~ .quotes .motivated {
       display: block;
-    }
-
-    /* Hide all quotes by default */
-    .message {
-      display: none;
-      margin-top: 20px;
-    }
-
-    .message ul {
-      list-style: none;
-      padding: 0;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .message li {
-      background: #f2f2f2;
-      margin: 10px 0;
-      padding: 15px;
-      border-radius: 10px;
-      font-style: italic;
     }
 
     /* Highlight the selected label */
@@ -75,56 +51,51 @@
       border-color: #333;
     }
 
+    /* Hide all quotes by default */
+    .message {
+      display: none;
+      max-width: 600px;
+      margin: 20px auto 0;
+      padding: 20px;
+      border-radius: 10px;
+      font-style: italic;
+      background-color: #f2f2f2;
+    }
+
     /* Background colors for quotes container depending on mood */
-    #happy:checked ~ .quotes-container {
+    #happy:checked ~ .quotes {
       background-color: #ffeb99;
-      border-radius: 15px;
-      padding: 20px;
-      transition: background-color 0.5s;
     }
 
-    #sad:checked ~ .quotes-container {
+    #sad:checked ~ .quotes {
       background-color: #cce0ff;
-      border-radius: 15px;
-      padding: 20px;
-      transition: background-color 0.5s;
     }
 
-    #anxious:checked ~ .quotes-container {
+    #anxious:checked ~ .quotes {
       background-color: #d0f0c0;
-      border-radius: 15px;
-      padding: 20px;
-      transition: background-color 0.5s;
     }
 
-    #motivated:checked ~ .quotes-container {
+    #motivated:checked ~ .quotes {
       background-color: #ffd1dc;
-      border-radius: 15px;
-      padding: 20px;
-      transition: background-color 0.5s;
     }
-
   </style>
 </head>
 <body>
   <h1>MoodBoost</h1>
-  
-  <div class="mood-options">
-    <input type="radio" name="mood" id="happy" checked>
-    <label for="happy">😊 Happy</label>
 
-    <input type="radio" name="mood" id="sad">
-    <label for="sad">😔 Sad</label>
+  <input type="radio" name="mood" id="happy" checked />
+  <label for="happy">😊 Happy</label>
 
-    <input type="radio" name="mood" id="anxious">
-    <label for="anxious">😰 Anxious</label>
+  <input type="radio" name="mood" id="sad" />
+  <label for="sad">😔 Sad</label>
 
-    <input type="radio" name="mood" id="motivated">
-    <label for="motivated">💪 Motivated</label>
-  </div>
+  <input type="radio" name="mood" id="anxious" />
+  <label for="anxious">😰 Anxious</label>
 
-  <div class="quotes-container">
-    <!-- Happy Quotes -->
+  <input type="radio" name="mood" id="motivated" />
+  <label for="motivated">💪 Motivated</label>
+
+  <div class="quotes">
     <div class="message happy">
       <ul>
         <li>“Happiness is not something ready made. It comes from your own actions.” — Dalai Lama</li>
@@ -133,7 +104,6 @@
       </ul>
     </div>
 
-    <!-- Sad Quotes -->
     <div class="message sad">
       <ul>
         <li>“Tears come from the heart and not from the brain.” — Leonardo da Vinci</li>
@@ -142,7 +112,6 @@
       </ul>
     </div>
 
-    <!-- Anxious Quotes -->
     <div class="message anxious">
       <ul>
         <li>“You don’t have to control your thoughts. You just have to stop letting them control you.” — Dan Millman</li>
@@ -151,7 +120,6 @@
       </ul>
     </div>
 
-    <!-- Motivated Quotes -->
     <div class="message motivated">
       <ul>
         <li>“Start where you are. Use what you have. Do what you can.” — Arthur Ashe</li>
