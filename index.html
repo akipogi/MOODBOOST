@@ -2,110 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mood Booster</title>
   <style>
     body {
-      font-family: 'Georgia', serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #f0f0f0;
-      padding: 30px 20px;
+      font-family: Arial, sans-serif;
       text-align: center;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      padding: 2em;
+      transition: background-color 0.5s, color 0.5s;
     }
+
     h1 {
-      font-size: 3.5rem;
-      margin-bottom: 2rem;
-      text-shadow: 2px 2px 8px #2e2e2e;
+      font-size: 3em;
     }
-    .quote {
-      background: rgba(255, 255, 255, 0.1);
-      border-left: 6px solid #f9a825;
-      padding: 20px 30px;
-      margin: 15px auto;
-      max-width: 700px;
-      font-size: 1.5rem;
-      font-style: italic;
-      line-height: 1.6;
-      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-      border-radius: 8px;
+
+    .mood-select label {
+      margin: 0 10px;
+      cursor: pointer;
+      padding: 10px 20px;
+      background: #eee;
+      border-radius: 20px;
+      display: inline-block;
     }
-    .author {
-      margin-top: 12px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #f9a825;
-      text-align: right;
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    .message {
+      margin-top: 2em;
+      font-size: 1.5em;
+      display: none;
+    }
+
+    #happy:checked ~ .happy,
+    #sad:checked ~ .sad,
+    #anxious:checked ~ .anxious,
+    #motivated:checked ~ .motivated {
+      display: block;
+    }
+
+    #happy:checked ~ body {
+      background-color: #ffe066;
+      color: #333;
+    }
+
+    #sad:checked ~ body {
+      background-color: #4a5568;
+      color: #f0f0f0;
+    }
+
+    #anxious:checked ~ body {
+      background-color: #f687b3;
+      color: #fff;
+    }
+
+    #motivated:checked ~ body {
+      background-color: #48bb78;
+      color: #fff;
     }
   </style>
 </head>
 <body>
   <h1>Mood Booster</h1>
 
-  <div class="quote">
-    “The wound is the place where the Light enters you.”  
-    <div class="author">— Rumi</div>
-  </div>
-
-  <div class="quote">
-    “You may encounter many defeats, but you must not be defeated.  
-    In fact, it may be necessary to encounter the defeats, so you can know who you are, what you can rise from, how you can still come out of it.”  
-    <div class="author">— Maya Angelou</div>
-  </div>
-
-  <div class="quote">
-    “Our greatest glory is not in never falling, but in rising every time we fall.”  
-    <div class="author">— Confucius</div>
-  </div>
-
-  <div class="quote">
-    “Do not be afraid to give up the good to go for the great.”  
-    <div class="author">— John D. Rockefeller</div>
-  </div>
-
-  <div class="quote">
-    “What lies behind us and what lies before us are tiny matters compared to what lies within us.”  
-    <div class="author">— Ralph Waldo Emerson</div>
-  </div>
-
-  <div class="quote">
-    “You don’t have to control your thoughts. You just have to stop letting them control you.”  
-    <div class="author">— Dan Millman</div>
-  </div>
-
-  <div class="quote">
-    “In the middle of every difficulty lies opportunity.”  
-    <div class="author">— Albert Einstein</div>
-  </div>
-
-  <div class="quote">
-    “Strength does not come from physical capacity. It comes from an indomitable will.”  
-    <div class="author">— Mahatma Gandhi</div>
-  </div>
-
-  <div class="quote">
-    “Sometimes when you’re in a dark place you think you’ve been buried, but you’ve actually been planted.”  
-    <div class="author">— Christine Caine</div>
-  </div>
-
-  <div class="quote">
-    “You were never created to live depressed, defeated, guilty, condemned, ashamed or unworthy.  
-    You were created to be victorious.”  
-    <div class="author">— Joel Osteen</div>
-  </div>
-
-  <div class="quote">
-    “The only way out of the labyrinth of suffering is to forgive.”  
-    <div class="author">— John Green</div>
-  </div>
-
-  <div class="quote">
-    “Happiness can be found, even in the darkest of times, if one only remembers to turn on the light.”  
-    <div class="author">— J.K. Rowling</div>
-  </div>
-
-</body>
-</html>
+  <div class="mood-select">
+    <label for="happy">😊 Happy</label>
+    <label for="sad">😢 Sad</label>
+    <label for="anxious">😰
