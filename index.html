@@ -2,29 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MoodBoost</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    html, body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      min-height: 100vh;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
+      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
       color: #333;
+      padding: 40px 20px;
     }
 
     h1 {
-      margin-top: 40px;
-      font-size: 3em;
+      font-size: 3.5em;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+      color: #222;
     }
 
     .mood-options {
-      margin: 30px 0;
+      margin: 20px 0;
     }
 
     .mood-options input[type="radio"] {
@@ -33,40 +43,55 @@
 
     .mood-options label {
       background-color: white;
+      border: 2px solid #888;
+      padding: 12px 25px;
+      margin: 0 12px;
       border-radius: 30px;
-      padding: 10px 20px;
-      margin: 5px;
       cursor: pointer;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       font-weight: 600;
-      transition: background-color 0.3s, transform 0.2s;
+      user-select: none;
       display: inline-block;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      font-size: 1.2em;
     }
 
     .mood-options label:hover {
-      background-color: #f1f1f1;
-      transform: scale(1.05);
+      background-color: #ffcc80;
+      border-color: #ff9800;
+      color: #663300;
+    }
+
+    input[type="radio"]:checked + label {
+      background-color: #ff9800;
+      color: white;
+      border-color: #e65100;
+      box-shadow: 0 4px 10px rgba(230, 81, 0, 0.7);
     }
 
     .message {
       display: none;
-      max-width: 600px;
+      margin-top: 40px;
+      padding: 25px 30px;
       width: 90%;
-      margin-bottom: 40px;
+      max-width: 650px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      color: #444;
+      font-style: italic;
+      line-height: 1.6;
     }
 
     .message ul {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
 
     .message li {
-      background: rgba(255, 255, 255, 0.9);
-      margin: 10px 0;
-      padding: 15px 20px;
-      border-radius: 10px;
-      font-style: italic;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      font-size: 1.1em;
     }
 
     #happy:checked ~ .happy,
@@ -81,53 +106,55 @@
   <h1>MoodBoost</h1>
 
   <div class="mood-options">
-    <input type="radio" name="mood" id="happy" checked>
+    <input type="radio" name="mood" id="happy" checked />
     <label for="happy">😊 Happy</label>
 
-    <input type="radio" name="mood" id="sad">
+    <input type="radio" name="mood" id="sad" />
     <label for="sad">😔 Sad</label>
 
-    <input type="radio" name="mood" id="anxious">
+    <input type="radio" name="mood" id="anxious" />
     <label for="anxious">😰 Anxious</label>
 
-    <input type="radio" name="mood" id="motivated">
+    <input type="radio" name="mood" id="motivated" />
     <label for="motivated">💪 Motivated</label>
   </div>
 
-  <!-- Happy Quotes -->
+  <!-- Quotes -->
   <div class="message happy">
     <ul>
       <li>“Happiness is not something ready made. It comes from your own actions.” — Dalai Lama</li>
       <li>“For every minute you are angry you lose sixty seconds of happiness.” — Ralph Waldo Emerson</li>
       <li>“The purpose of our lives is to be happy.” — Dalai Lama</li>
+      <li>“Count your age by friends, not years. Count your life by smiles, not tears.” — John Lennon</li>
     </ul>
   </div>
 
-  <!-- Sad Quotes -->
   <div class="message sad">
     <ul>
       <li>“Tears come from the heart and not from the brain.” — Leonardo da Vinci</li>
       <li>“The wound is the place where the Light enters you.” — Rumi</li>
       <li>“Every storm runs out of rain, just like every dark night turns into day.” — Gary Allan</li>
+      <li>“Sadness flies away on the wings of time.” — Jean de La Fontaine</li>
     </ul>
   </div>
 
-  <!-- Anxious Quotes -->
   <div class="message anxious">
     <ul>
       <li>“You don’t have to control your thoughts. You just have to stop letting them control you.” — Dan Millman</li>
       <li>“Do not anticipate trouble, or worry about what may never happen. Keep in the sunlight.” — Benjamin Franklin</li>
       <li>“This too shall pass.” — Persian adage</li>
+      <li>“Feelings come and go like clouds in a windy sky. Conscious breathing is my anchor.” — Thich Nhat Hanh</li>
     </ul>
   </div>
 
-  <!-- Motivated Quotes -->
   <div class="message motivated">
     <ul>
       <li>“Start where you are. Use what you have. Do what you can.” — Arthur Ashe</li>
       <li>“The future depends on what you do today.” — Mahatma Gandhi</li>
       <li>“Don’t watch the clock; do what it does. Keep going.” — Sam Levenson</li>
+      <li>“Success usually comes to those who are too busy to be looking for it.” — Henry David Thoreau</li>
     </ul>
   </div>
 </body>
 </html>
+
